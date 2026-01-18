@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>solarix95 — Projects</title>
+  <meta name="description" content="Clean overview of featured open-source projects by solarix95: NeoAda, Blazar, libqtr3d and more." />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0b0f14" />
+
+  <!-- Open Graph (nice previews when sharing) -->
+  <meta property="og:title" content="solarix95 — Projects" />
+  <meta property="og:description" content="NeoAda (scripting language), Blazar (zero gravity space simulator), libqtr3d (Qt/C++ 3D engine) and more." />
+  <meta property="og:type" content="website" />
+
+  <style>
+    :root{
+      --bg: #0b0f14;
+      --panel: #0f1620;
+      --panel2: #0c121a;
+      --text: #e6edf3;
+      --muted: #9aa7b4;
+      --line: rgba(230,237,243,.12);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 16px;
+
+      --accent: #7dd3fc;   /* cyan */
+      --accent2:#a78bfa;   /* violet */
+      --ok: #34d399;       /* green */
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(167,139,250,.14), transparent 60%),
+                  radial-gradient(900px 500px at 90% 10%, rgba(125,211,252,.10), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a{ color: inherit; text-decoration: none; }
+    a:hover{ text-decoration: underline; text-decoration-color: rgba(230,237,243,.25); }
+
+    .wrap{
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 42px 18px 60px;
+    }
+
+    header{
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 26px;
+    }
+
+    .brand{
+      display:flex;
+      gap: 14px;
+      align-items:center;
+    }
+
+    .avatar{
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(125,211,252,.35), rgba(167,139,250,.35));
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .title h1{
+      font-size: 26px;
+      margin: 0;
+      letter-spacing: .2px;
+    }
+    .title p{
+      margin: 5px 0 0 0;
+      color: var(--muted);
+      max-width: 64ch;
+    }
+
+    .toplinks{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .pill{
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(15,22,32,.55);
+      backdrop-filter: blur(8px);
+      font-size: 14px;
+      color: var(--text);
+    }
+    .pill:hover{ border-color: rgba(230,237,243,.22); text-decoration: none; }
+
+    .section-title{
+      display:flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 26px 0 12px;
+    }
+    .section-title h2{
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: .3px;
+      color: rgba(230,237,243,.92);
+    }
+    .section-title span{
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+    }
+
+    .card{
+      grid-column: span 12;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(15,22,32,.92), rgba(12,18,26,.92));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card-inner{
+      display:grid;
+      grid-template-columns: 1.1fr 1.4fr;
+      gap: 0;
+      min-height: 210px;
+    }
+
+    .media{
+      border-right: 1px solid var(--line);
+      background: radial-gradient(800px 220px at 20% 20%, rgba(125,211,252,.14), transparent 55%),
+                  radial-gradient(700px 240px at 80% 60%, rgba(167,139,250,.10), transparent 55%),
+                  var(--panel2);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 16px;
+    }
+
+    /* Replace these with real images: <img class="thumb" src="assets/neoada.png" ...> */
+    .thumb{
+      width: 100%;
+      height: 100%;
+      min-height: 210px;
+      border-radius: 12px;
+      border: 1px solid rgba(230,237,243,.10);
+      background:
+        linear-gradient(135deg, rgba(125,211,252,.10), rgba(167,139,250,.08)),
+        repeating-linear-gradient(90deg, rgba(230,237,243,.04) 0, rgba(230,237,243,.04) 1px, transparent 1px, transparent 12px);
+      display:flex;
+      align-items:flex-end;
+      justify-content:flex-start;
+      padding: 14px;
+      color: rgba(230,237,243,.85);
+      font-size: 13px;
+    }
+
+    .content{
+      padding: 18px 18px 16px;
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .content h3{
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: .2px;
+    }
+
+    .subtitle{
+      margin: -4px 0 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .tags{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 2px;
+    }
+
+    .tag{
+      font-size: 12px;
+      color: rgba(230,237,243,.85);
+      border: 1px solid rgba(230,237,243,.12);
+      background: rgba(255,255,255,.03);
+      padding: 5px 9px;
+      border-radius: 999px;
+    }
+    .tag.cyan{ border-color: rgba(125,211,252,.25); }
+    .tag.violet{ border-color: rgba(167,139,250,.25); }
+    .tag.green{ border-color: rgba(52,211,153,.25); }
+
+    .actions{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: auto;
+      padding-top: 6px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      font-size: 14px;
+      text-decoration: none;
+    }
+    .btn:hover{ border-color: rgba(230,237,243,.22); text-decoration: none; }
+    .btn.primary{
+      border-color: rgba(125,211,252,.30);
+      background: linear-gradient(135deg, rgba(125,211,252,.10), rgba(167,139,250,.08));
+    }
+
+    .seealso{
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: rgba(15,22,32,.55);
+      padding: 14px 14px 8px;
+    }
+
+    .links{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px 12px;
+      margin-top: 8px;
+    }
+
+    .linkitem{
+      border: 1px solid rgba(230,237,243,.10);
+      background: rgba(255,255,255,.02);
+      border-radius: 12px;
+      padding: 10px 10px;
+      font-size: 14px;
+      color: rgba(230,237,243,.92);
+    }
+    .linkitem span{
+      display:block;
+      margin-top: 2px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .linkitem:hover{ border-color: rgba(230,237,243,.22); text-decoration: none; }
+
+    footer{
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 13px;
+      display:flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+    }
+
+    @media (max-width: 860px){
+      .card-inner{ grid-template-columns: 1fr; }
+      .media{ border-right: none; border-bottom: 1px solid var(--line); }
+      .links{ grid-template-columns: 1fr; }
+      header{ flex-direction: column; align-items: flex-start; }
+      .toplinks{ justify-content: flex-start; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="avatar" aria-hidden="true"></div>
+        <div class="title">
+          <h1>solarix95</h1>
+          <p>Open-source projects — languages, simulators, and engines. Clean builds, readable code.</p>
+        </div>
+      </div>
+
+      <nav class="toplinks" aria-label="Links">
+        <a class="pill" href="https://github.com/solarix95">GitHub</a>
+        <!-- Optional: add more -->
+        <!-- <a class="pill" href="https://www.linkedin.com/in/...">LinkedIn</a> -->
+        <!-- <a class="pill" href="mailto:you@example.com">Email</a> -->
+      </nav>
+    </header>
+
+    <div class="section-title">
+      <h2>Featured</h2>
+      <span>3 highlights</span>
+    </div>
+
+    <section class="grid" aria-label="Featured projects">
+
+      <!-- NeoAda -->
+      <article class="card">
+        <div class="card-inner">
+          <div class="media">
+            <!-- Replace this placeholder with an image if you want:
+                 <img class="thumb" src="assets/neoada.png" alt="NeoAda cover" />
+            -->
+            <div class="thumb">NeoAda — scripting language</div>
+          </div>
+
+          <div class="content">
+            <h3>NeoAda</h3>
+            <p class="subtitle">Scriptsprache mit Fokus auf Klarheit, Safety und pragmatische Tooling.</p>
+
+            <div class="tags" aria-label="Tech tags">
+              <span class="tag cyan">Language</span>
+              <span class="tag violet">Tooling</span>
+              <span class="tag">Open Source</span>
+            </div>
+
+            <div class="actions">
+              <a class="btn primary" href="https://github.com/solarix95/NeoAda">Repo</a>
+              <!-- Wenn du eine Projektseite aktivierst, setze hier die URL rein: -->
+              <a class="btn" href="https://solarix95.github.io/NeoAda/">Project page</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Blazar -->
+      <article class="card">
+        <div class="card-inner">
+          <div class="media">
+            <div class="thumb">Blazar — zero gravity space simulator</div>
+          </div>
+
+          <div class="content">
+            <h3>Blazar</h3>
+            <p class="subtitle">Zero-gravity Space Simulator: Flugphysik, Manöver, Szenen/Assets und Gameplay-Experimente.</p>
+
+            <div class="tags" aria-label="Tech tags">
+              <span class="tag green">Simulation</span>
+              <span class="tag cyan">Physics</span>
+              <span class="tag">Game/Engine</span>
+            </div>
+
+            <div class="actions">
+              <a class="btn primary" href="https://github.com/solarix95/Blazar">Repo</a>
+              <!-- Optional Project page: -->
+              <!-- <a class="btn" href="https://solarix95.github.io/Blazar/">Project page</a> -->
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- libqtr3d -->
+      <article class="card">
+        <div class="card-inner">
+          <div class="media">
+            <div class="thumb">libqtr3d — Qt/C++ 3D engine</div>
+          </div>
+
+          <div class="content">
+            <h3>libqtr3d</h3>
+            <p class="subtitle">Qt/C++ 3D Engine: Rendering, Scene Graph, Utilities — gebaut für schnelle Prototypen.</p>
+
+            <div class="tags" aria-label="Tech tags">
+              <span class="tag cyan">Qt</span>
+              <span class="tag violet">C++</span>
+              <span class="tag">3D</span>
+            </div>
+
+            <div class="actions">
+              <a class="btn primary" href="https://github.com/solarix95/libqtr3d">Repo</a>
+              <!-- Optional Project page: -->
+              <!-- <a class="btn" href="https://solarix95.github.io/libqtr3d/">Project page</a> -->
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <div class="section-title">
+      <h2>See also</h2>
+      <span>more repos</span>
+    </div>
+
+    <section class="seealso" aria-label="See also projects">
+      <div class="links">
+        <!-- Ersetze/ergänze diese Links mit deinen echten Repos -->
+        <a class="linkitem" href="https://github.com/solarix95">
+          More projects on GitHub
+          <span>Full list & activity</span>
+        </a>
+
+        <a class="linkitem" href="https://github.com/solarix95?tab=repositories">
+          Repositories
+          <span>Browse everything</span>
+        </a>
+
+        <!-- 5–10 konkrete Projekte (Beispiele/Platzhalter) -->
+        <a class="linkitem" href="https://github.com/solarix95/REPO1">
+          REPO1
+          <span>Short one-liner about it</span>
+        </a>
+        <a class="linkitem" href="https://github.com/solarix95/REPO2">
+          REPO2
+          <span>Short one-liner about it</span>
+        </a>
+        <a class="linkitem" href="https://github.com/solarix95/REPO3">
+          REPO3
+          <span>Short one-liner about it</span>
+        </a>
+        <a class="linkitem" href="https://github.com/solarix95/REPO4">
+          REPO4
+          <span>Short one-liner about it</span>
+        </a>
+        <a class="linkitem" href="https://github.com/solarix95/REPO5">
+          REPO5
+          <span>Short one-liner about it</span>
+        </a>
+        <a class="linkitem" href="https://github.com/solarix95/REPO6">
+          REPO6
+          <span>Short one-liner about it</span>
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="y"></span> solarix95</div>
+      <div>
+        <a href="https://github.com/solarix95">GitHub</a>
+        ·
+        <a href="https://solarix95.github.io/">Home</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
